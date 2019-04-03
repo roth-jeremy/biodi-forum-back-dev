@@ -1,0 +1,35 @@
+#af-wrapper .unread:before,
+#af-wrapper #forum-profile .display-name,
+#af-wrapper input[type="checkbox"]:checked:before {
+color: #006eab !important;
+}
+#af-wrapper input[type="submit"],
+#af-wrapper .forum-menu a.button-normal,
+#af-wrapper .title-element,
+#af-wrapper #forum-header,
+#af-wrapper #profile-header .background-avatar,
+#af-wrapper #profile-navigation,
+#af-wrapper #read-unread .unread,
+#af-wrapper input[type="radio"]:checked:before {
+background-color: #006eab !important;
+}
+#af-wrapper #forum-search,
+#af-wrapper input[type="radio"]:focus,
+#af-wrapper input[type="checkbox"]:focus,
+#af-wrapper #profile-header {
+border-color: #006eab !important;
+}
+#af-wrapper input[type="submit"],
+#af-wrapper .forum-menu a.button-normal,
+#af-wrapper .title-element,
+#af-wrapper #forum-header,
+#af-wrapper #forum-navigation a,
+#af-wrapper #forum-navigation-mobile a {
+border-color: #2a4263 !important;
+}
+#af-wrapper #profile-navigation a.active {
+background-color: #2a4263 !important;
+}
+#af-wrapper {
+font-family: Bebas Neue, Tahoma regular, Tahoma bold,  sans-serif !important;
+}

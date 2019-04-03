@@ -1,0 +1,13 @@
+#This Apache config file was created by Duplicator Installer on 2019-04-03 08:22:57.
+#The original can be found in archived file with the name htaccess.orig
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /biodi-wp-dev/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /biodi-wp-dev/index.php [L]
+</IfModule>
+# END WordPress
