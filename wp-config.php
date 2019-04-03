@@ -103,6 +103,10 @@ define('LOGGED_IN_SALT',   'sPi ,G{v#|3=Ly5A]UAW[eb5^z}!}Lt@YUvCfLKf$hA}>5g},Y+h
 
 define('NONCE_SALT',       '.3OtS;3qDkm#tz$BCe+(%}rPi6fC0h(4R)HnHZ^S16!5?05$/hO>_DTK>%4uG] ]');
 
+define('JWT_AUTH_SECRET_KEY', 'this-is-a-jwt-auth-secret-key');
+
+define('JWT_AUTH_CORS_ENABLE', true);
+
 
 /**#@-*/
 
