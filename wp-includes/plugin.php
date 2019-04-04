@@ -935,3 +935,18 @@ function _wp_filter_build_unique_id( $tag, $function, $priority ) {
 		return $function[0] . '::' . $function[1];
 	}
 }
+
+function checkloggedinuser()
+{
+$currentuserid_fromjwt = get_current_user_id();
+print_r($currentuserid_fromjwt);
+exit;
+}
+
+add_action('rest_api_init', function ()
+{
+  register_rest_route( 'testone', 'loggedinuser',array(
+  'methods' => 'GET',
+  'callback' => 'checkloggedinuser'
+  ));
+});
