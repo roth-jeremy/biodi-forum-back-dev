@@ -936,6 +936,13 @@ function _wp_filter_build_unique_id( $tag, $function, $priority ) {
 	}
 }
 
+
+/**
+ * Example route creation function that returns the ID of the current user. Must be authenticated through JWT auth.
+ * 'testone' is the namespace, 'loggedinuser' is the path. 
+ * 
+ * This route is accessible through "mysite.co/wp-json/testone/loggedinuser"
+ */
 function checkloggedinuser()
 {
 $currentuserid_fromjwt = get_current_user_id();

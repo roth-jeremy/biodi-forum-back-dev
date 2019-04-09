@@ -1,0 +1,229 @@
+********************************************************************************
+* DUPLICATOR-LITE: Install-Log
+* STEP-1 START @ 12:44:54
+* VERSION: 1.3.10
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+PHP:		7.1.16 | SAPI: apache2handler
+PHP MEMORY:	4294967296 | SUHOSIN: disabled
+SERVER:		Apache/2.4.33 (Win64) PHP/7.1.16
+DOC ROOT:	C:/wamp64/www/biodi-wp-dev
+DOC ROOT 755:	true
+LOG FILE 644:	true
+REQUEST URL:	http://localhost/biodi-wp-dev/dup-installer/main.installer.php
+SAFE MODE :	0
+CONFIG MODE :	NEW
+--------------------------------------
+PRE-EXTRACT-CHECKS
+--------------------------------------
+- PASS: Apache '.htaccess' backed-up to .htaccess-190405124454-5ca74dc619633-duplicator.bak
+- PASS: Existing Apache '.htaccess' was removed
+- PASS: Microsoft IIS 'web.config' not found - no backup needed.
+- PASS: WordFence '.user.ini' not found - no backup needed.
+--------------------------------------
+ARCHIVE SETUP
+--------------------------------------
+NAME:	20190403_biodiverscityforum_8cd5419b5f7eaab01339_20190405124147_archive.zip
+SIZE:	17.9MB
+
+
+** PACKAGE EXTRACTION IS IN MANUAL MODE ** 
+
+--------------------------------------
+POST-EXTACT-CHECKS
+--------------------------------------
+
+PERMISSION UPDATES: None Applied
+
+STEP-1 COMPLETE @ 12:44:54 - RUNTIME: 0.0103 sec.
+
+
+
+********************************************************************************
+* DUPLICATOR-LITE INSTALL-LOG
+* STEP-2 START @ 12:46:17
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+--------------------------------------
+DATABASE-ENVIRONMENT
+--------------------------------------
+MYSQL VERSION:	This Server: 5.7.21 -- Build Server: 5.7.25
+FILE SIZE:	dup-database__8cd5419-05124147.sql (1.04MB)
+TIMEOUT:	5000
+MAXPACK:	268435456
+SQLMODE:	STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER
+NEW SQL FILE:	[C:/wamp64/www/biodi-wp-dev/dup-installer/dup-installer-data__8cd5419-05124147.sql]
+COLLATE FB:	Off
+
+NOTICE: This servers version [5.7.21] is less than the build version [5.7.25].  
+If you find issues after testing your site please referr to this FAQ item.
+https://snapcreek.com/duplicator/docs/faqs-tech/#faq-installer-260-q
+
+INSTALLER ERROR:
+DATABASE CREATION FAILURE!
+ Unable to remove table from database "wp-biodi-dev.cities".
+  Please remove all tables from this database and try the installation again.  If no tables show in database, then Drop the database and re-create it.
+ERROR MESSAGE:
+
+
+
+********************************************************************************
+* DUPLICATOR-LITE INSTALL-LOG
+* STEP-2 START @ 12:48:46
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+--------------------------------------
+DATABASE-ENVIRONMENT
+--------------------------------------
+MYSQL VERSION:	This Server: 5.7.21 -- Build Server: 5.7.25
+FILE SIZE:	dup-database__8cd5419-05124147.sql (1.04MB)
+TIMEOUT:	5000
+MAXPACK:	268435456
+SQLMODE:	STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER
+NEW SQL FILE:	[C:/wamp64/www/biodi-wp-dev/dup-installer/dup-installer-data__8cd5419-05124147.sql]
+COLLATE FB:	Off
+
+NOTICE: This servers version [5.7.21] is less than the build version [5.7.25].  
+If you find issues after testing your site please referr to this FAQ item.
+https://snapcreek.com/duplicator/docs/faqs-tech/#faq-installer-260-q
+--------------------------------------
+DATABASE RESULTS
+--------------------------------------
+DB VIEWS:	enabled
+DB PROCEDURES:	enabled
+ERRORS FOUND:	0
+DROPPED TABLES:	1
+RENAMED TABLES:	0
+QUERIES RAN:	278
+
+cities: (2)
+neighborhoods: (5)
+wp_cimy_uef_data: (0)
+wp_cimy_uef_fields: (1)
+wp_cimy_uef_wp_fields: (0)
+wp_commentmeta: (0)
+wp_comments: (2)
+wp_duplicator_packages: (0)
+wp_forum_ads: (0)
+wp_forum_forums: (6)
+wp_forum_posts: (9)
+wp_forum_reactions: (2)
+wp_forum_reports: (0)
+wp_forum_topics: (6)
+wp_links: (0)
+wp_oauth_access_tokens: (0)
+wp_oauth_authorization_codes: (0)
+wp_oauth_jwt: (0)
+wp_oauth_public_keys: (0)
+wp_oauth_refresh_tokens: (0)
+wp_oauth_scopes: (0)
+wp_options: (158)
+wp_postmeta: (174)
+wp_posts: (116)
+wp_signups: (3)
+wp_term_relationships: (3)
+wp_term_taxonomy: (5)
+wp_termmeta: (7)
+wp_terms: (5)
+wp_usermeta: (103)
+wp_users: (5)
+Removed '35' cache/transient rows
+
+INSERT DATA RUNTIME: 2.8039 sec.
+STEP-2 COMPLETE @ 12:48:48 - RUNTIME: 2.8166 sec.
+
+
+
+********************************************************************************
+DUPLICATOR-LITE INSTALL-LOG
+STEP-3 START @ 12:49:32
+NOTICE: Do NOT post to public sites or forums
+********************************************************************************
+CHARSET SERVER:	latin1
+CHARSET CLIENT:	utf8
+
+--------------------------------------
+SERIALIZER ENGINE
+[*] scan every column
+[~] scan only text columns
+[^] no searchable columns
+--------------------------------------
+cities~ (2)
+neighborhoods~ (5)
+wp_cimy_uef_data^ (0)
+wp_cimy_uef_fields~ (1)
+wp_cimy_uef_wp_fields^ (0)
+wp_commentmeta^ (0)
+wp_comments~ (2)
+wp_duplicator_packages^ (0)
+wp_forum_ads^ (0)
+wp_forum_forums~ (6)
+wp_forum_posts~ (9)
+wp_forum_reactions~ (2)
+wp_forum_reports^ (0)
+wp_forum_topics~ (6)
+wp_links^ (0)
+wp_oauth_access_tokens^ (0)
+wp_oauth_authorization_codes^ (0)
+wp_oauth_jwt^ (0)
+wp_oauth_public_keys^ (0)
+wp_oauth_refresh_tokens^ (0)
+wp_oauth_scopes^ (0)
+wp_options~ (158)
+wp_postmeta~ (174)
+wp_posts~ (116)
+wp_signups~ (3)
+wp_term_relationships~ (3)
+wp_term_taxonomy~ (5)
+wp_termmeta~ (7)
+wp_terms~ (5)
+wp_usermeta~ (103)
+wp_users~ (5)
+--------------------------------------
+Search1:	'/var/www/html' 
+Change1:	'C:/wamp64/www/biodi-wp-dev' 
+Search2:	'\/var\/www\/html' 
+Change2:	'C:\/wamp64\/www\/biodi-wp-dev' 
+Search3:	'%2Fvar%2Fwww%2Fhtml%2F' 
+Change3:	'C%3A%2Fwamp64%2Fwww%2Fbiodi-wp-dev%2F' 
+Search4:	'\var\www\html' 
+Change4:	'C:/wamp64/www/biodi-wp-dev' 
+Search5:	'\\var\\www\\html' 
+Change5:	'C:\/wamp64\/www\/biodi-wp-dev' 
+Search6:	'%5Cvar%5Cwww%5Chtml' 
+Change6:	'C%3A%2Fwamp64%2Fwww%2Fbiodi-wp-dev' 
+Search7:	'//forum.biodi-vers-city.ch' 
+Change7:	'//localhost/biodi-wp-dev' 
+Search8:	'\/\/forum.biodi-vers-city.ch' 
+Change8:	'\/\/localhost\/biodi-wp-dev' 
+Search9:	'%2F%2Fforum.biodi-vers-city.ch' 
+Change9:	'%2F%2Flocalhost%2Fbiodi-wp-dev' 
+Search10:	'https://localhost' 
+Change10:	'http://localhost' 
+Search11:	'https:\/\/localhost' 
+Change11:	'http:\/\/localhost' 
+Search12:	'https%3A%2F%2Flocalhost' 
+Change12:	'http%3A%2F%2Flocalhost' 
+SCANNED:	Tables:31 	|	 Rows:612 	|	 Cells:4830 
+UPDATED:	Tables:1 	|	 Rows:124 	|	 Cells:168 
+ERRORS:		0 
+RUNTIME:	0.266700 sec
+
+====================================
+CONFIGURATION FILE UPDATES:
+====================================
+
+UPDATED WP-CONFIG ARK FILE:
+ - 'C:/wamp64/www/biodi-wp-dev/wp-config.php'
+- PASS: Successfully created a new .htaccess file.
+
+====================================
+NOTICES
+====================================
+
+No General Notices Found
+
+
+STEP-3 COMPLETE @ 12:49:32 - RUNTIME: 0.3093 sec. 
+
+
