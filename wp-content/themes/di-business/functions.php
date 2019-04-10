@@ -66,28 +66,8 @@ add_action('personal_options_update', 'biodi_save_profile_fields');
 add_action('edit_user_profile_update', 'biodi_save_profile_fields');
 
 /**
- * Add some new plants
+ * Add a new tab 'Plants' to the Admin dashboard
  */
-function plants_page()
-{
-    ?>
-    <h3>Add a new plant</h3>
-    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>"
-          method="post">
-        <label for="name">Nom</label>
-        <input id="name" name="name" type="text" required>
-
-        <label for="description">Description</label>
-        <input id="description" name="description" type="text" required>
-
-        <input type="hidden" name="action" value="newPlant">
-        <input type="submit" name="plantSubmit" value="Créér">
-    </form>
-    <?php
-
-}
-
-add_action('admin_menu', 'my_admin_menu');
 
 function my_admin_menu()
 {
@@ -95,25 +75,118 @@ function my_admin_menu()
         'myplugin/plants-page.php', 'plants_page', 'dashicons-tickets', 6);
 }
 
-add_action('admin_post_newPlant', 'newPlant');
+add_action('admin_menu', 'my_admin_menu');
+
 /**
- * Database insert
+ * HTML form to insert a new plant
+ */
+function plants_page()
+{
+    ?>
+    <h3>Ajout d'une nouvelle plante</h3>
+    <form id="plantForm"
+          action="<?php echo esc_url(admin_url('admin-post.php')); ?>"
+          method="post">
+        <label for="name">Nom</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="description">Description</label>
+        <input id="description" name="description" type="text">
+
+        <br>
+        <label for="initialBudget">Budget initial</label>
+        <select id="initialBudget" name="initialBudget">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <label for="exploitationBudget">Budget exploitation</label>
+        <select id="exploitationBudget" name="exploitationBudget">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <label for="initialTime">Temps d'installation</label>
+        <select id="initialTime" name="initialTime">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <label for="exploitationTime">Temps d'exploitation</label>
+        <select id="exploitationTime" name="exploitationTime">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <label for="size">Taille</label>
+        <select id="size" name="size">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <br>
+        <label for="sunlight">Ensoleillement</label>
+        <select id="sunlight" name="sunlight">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <label for="favorising">Espèces animales attirées</label>
+        <select id="favorising" name="favorising">
+            <option value="bugs">insectes</option>
+            <option value="birds">oiseaux</option>
+        </select>
+        <br>
+        <input type="hidden" name="action" value="newPlant">
+        <input type="submit" name="plantSubmit" value="Créér">
+    </form>
+    <?php
+}
+
+/**
+ * Creation of a new plant in the database.
+ * Verify data and do SQL INSERT
+ * Fire when the form @plantForm is submit.
  */
 function newPlant()
 {
-    var_dump($_POST);
     if (!isset($_POST['plantSubmit'])) {
         return;
     }
 
-    if (empty($_POST['name']) || empty($_POST['description'])) {
-        return;
+    foreach ($_POST as $name => $value) {
+        if (empty($value)) {
+            echo "Le champ -" . $name . "- est vide";
+            return;
+        }
     }
 
     global $wpdb;
     //$wpdb->query("INSERT INTO plants(name,description) VALUES("        . $_POST['name'] . "," . $_POST['description'] . ")");
-    echo $wpdb->insert('plants',array(
-            'name' => $_POST['name'],
-            'description' => $_POST['description']
+    echo $wpdb->insert('plants', array(
+        'name'               => $_POST['name'],
+        'description'        => $_POST['description'],
+        'initialBudget'      => $_POST['initialBudget'],
+        'exploitationBudget' => $_POST['exploitationBudget'],
+        'initialTime'        => $_POST['initialTime'],
+        'exploitationTime'   => $_POST['exploitationTime'],
+        'size'               => $_POST['size'],
+        'sunlight'           => $_POST['sunlight'],
+        'favorising'         => $_POST['favorising']
     ));
 }
+
+add_action('admin_post_newPlant', 'newPlant');
