@@ -86,7 +86,7 @@ function plants_page()
     <h3>Ajout d'une nouvelle plante</h3>
     <form id="plantForm"
           action="<?php echo esc_url(admin_url('admin-post.php')); ?>"
-          method="post">
+          method="post" class="plant-form">
         <label for="name">Nom</label>
         <input id="name" name="name" type="text" required>
 
@@ -154,6 +154,7 @@ function plants_page()
         <input type="submit" name="plantSubmit" value="Créér">
     </form>
     <?php
+    retrievePlants();
 }
 
 /**
@@ -190,3 +191,144 @@ function newPlant()
 }
 
 add_action('admin_post_newPlant', 'newPlant');
+
+/**
+ * Retrieve all plants
+ */
+function retrievePlants()
+{
+    global $wpdb;
+    $plants = $wpdb->get_results("SELECT * FROM plants", OBJECT);
+
+    ?>
+    <h1>Liste des plantes</h1>
+    <?php
+    foreach ($plants as $data) {
+        ?>
+        <script>
+            var myplants = <?php echo json_encode($plants); ?> ;
+        </script>
+        <div>
+            <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>"
+                  id="updatePlantForm" method="post">
+                <?php
+                $idPlant = 1;
+                foreach ($data as $name => $value) {
+                    if ($name === 'name' || $name === 'description') {
+                        ?>
+                        <label><?php echo $name; ?>
+                            <input name="<?php echo $name; ?>"
+                                   id="<?php echo $name; ?>" type="text"
+                                   value=<?php echo $value; ?>>
+                        </label>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if ($name === 'id') {
+                        $idPlant = $value;
+                    }
+                    if ($name === 'initialTime' || $name === 'exploitationTime'
+                        || $name === 'initialBudget'
+                        || $name === 'exploitationBudget'
+                        || $name === 'favorising'
+                    ) {
+                        echo biodi_select($value, $name);
+                    }
+                }
+                ?>
+                <input id="idPlant" name="idPlant" value="<?php echo $idPlant; ?>" hidden>
+                <input type="hidden" name="action" value="updatePlant">
+                <button name="modify" id="modify" type="submit">Modifier
+                </button>
+            </form>
+        </div>
+        <?php
+    }
+}
+
+/**
+ * Update a plant when clicked on the button
+ */
+function updatePlant()
+{
+    global $wp;
+    $current_url = home_url(add_query_arg(array(), $wp->request));
+    echo $current_url;
+
+    global $wpdb;
+    //$wpdb->query("INSERT INTO plants(name,description) VALUES("        . $_POST['name'] . "," . $_POST['description'] . ")");
+    $updated = $wpdb->update('plants', array(
+        'name'               => $_POST['name'],
+        'description'        => $_POST['description'],
+        'initialBudget'      => $_POST['initialBudget'],
+        'exploitationBudget' => $_POST['exploitationBudget'],
+        'initialTime'        => $_POST['initialTime'],
+        'exploitationTime'   => $_POST['exploitationTime'],
+        'size'               => $_POST['size'],
+        'sunlight'           => $_POST['sunlight'],
+        'favorising'         => $_POST['favorising']
+    ), array('id' => $_POST['idPlant']));
+
+    if ($updated === false) {
+        echo 'error during updating';
+    } else {
+        echo $_POST['idPlant'];
+        wp_redirect($current_url."/wp-admin/admin.php?page=myplugin%2Fplants-page.php");
+    }
+}
+
+add_action('admin_post_updatePlant', 'updatePlant');
+
+
+/**
+ * Transform enum type from DB to html dropdown list with the correct field selected
+ */
+function biodi_select($default_value, $selectName)
+{
+    $select = '<label>' . $selectName . '</label> <select name="' . $selectName
+        . '">';
+    if ($selectName === 'favorising') {
+        $options = array('oiseaux', 'insectes');
+    } else {
+        $options = array(1, 2, 3, 4, 5);
+    }
+
+    foreach ($options as $option) {
+        $select .= write_option($option, $option, $default_value);
+    }
+    $select .= '</select>';
+    return $select;
+}
+
+function write_option($value, $display, $default_value = '')
+{
+    $option = '<option value="' . $value . '"';
+    $option .= ($default_value == $value) ? ' SELECTED' : '';
+    $option .= '>' . $display . '</option>';
+    return $option;
+}
+
+
+/**
+ * Add some styling to the plants form
+ */
+function admin_style()
+{
+    wp_enqueue_style('admin-styles',
+        get_template_directory_uri() . '/custom-admin.css');
+}
+
+add_action('admin_enqueue_scripts', 'admin_style');
+
+/**
+ * Add some styling to the plants form
+ */ /*
+function admin_interaction()
+{
+    wp_enqueue_script('admin-',
+        get_template_directory_uri() . '/interaction-admin.js');
+}
+
+add_action('admin_enqueue_scripts', 'admin_interaction');
+*/
