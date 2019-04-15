@@ -14,6 +14,7 @@
 defined( 'ABSPATH' ) or exit;
 
 /**
+ * Admin User interface :
  * Add new fields above 'Update' button.
  *
  * @param WP_User $user User object.
@@ -48,7 +49,7 @@ add_action( 'edit_user_profile', 'biodi_additional_profile_fields' );
 
 
 /**
- * Save additional profile fields.
+ * Save additional profile fields about the user's neighbourhood in the database
  *
  * @param  int $user_id Current user ID.
  */
@@ -96,3 +97,94 @@ add_action('rest_api_init', function ()
   'callback' => 'checkloggedinuser'
   ));
 });
+
+/**
+ * Add neighbourgood information in user's meta JSON response
+ */
+register_meta('user', 'neighbourhood', array(
+    "type" => "string",
+    "show_in_rest" => true, 
+  ));
+
+/**
+ * ==================ROUTES=====================
+ */
+
+add_action('rest_api_init', function ()
+{
+    register_rest_route( 'testone', 'loggedinuser',array(
+        'methods' => 'GET',
+        'callback' => 'checkloggedinuser'
+    ));
+});
+add_action('rest_api_init', function ()
+{
+    register_rest_route('v1', 'balconies', array(
+        'methods' => 'GET',
+        'callback' => 'listbalconies',
+    ));
+});
+add_action('rest_api_init', function ()
+{
+    register_rest_route('v1', 'balconies/(?P<id>\d+)', array(
+        'methods' => 'GET',
+        'callback' => 'listbalcony',
+    ));
+});
+add_action('rest_api_init', function ()
+{
+    register_rest_route('v1', 'balconies/add', array(
+        'methods' => 'POST',
+        'callback' => 'addbalcony',
+    ));
+});
+add_action('rest_api_init', function ()
+{
+    register_rest_route('v1', 'balconies/add', array(
+        'methods' => 'POST',
+        'callback' => 'addbalcony',
+    ));
+});
+
+/**
+ * ==================ROUTE FUNCTIONS CALLBACKS=====================
+ */
+function listbalconies(){
+    global $wpdb;
+    
+    $user_id = get_current_user_id();
+    $results = $wpdb->get_results("SELECT * FROM balconies WHERE user_id=".$user_id, OBJECT);
+
+    return $results;
+}
+function listbalcony(WP_REST_Request $request){
+    global $wpdb;
+    $id = $request->get_param('id');
+    print_r($id);
+    $results = $wpdb->get_results("SELECT * FROM balconies WHERE id=". $id , OBJECT);
+
+    return $results[0];
+}
+
+function addbalcony(WP_REST_Request $request){
+    global $wpdb;
+    $user_id = get_current_user_id();
+    $name = $request->get_param('name');
+    $size = $request->get_param('size');
+    $sunlight = $request->get_param('sunlight');
+    $pet = $request->get_param('pet');
+    $environnement = $request->get_param('environnement');
+    $floor = $request->get_param('floor');
+    $favorising = $request->get_param('favorising');
+
+    return $inserted = $wpdb->insert('balconies', array(
+        'name'               => $name,
+        'size'               => $size,
+        'sunlight'           => $sunlight,
+        'pet'                => $pet,
+        'environnement'      => $environnement,
+        'floor'              => $floor,
+        'favorising'         => $favorising,
+        'user_id'            => $user_id,
+    ));
+}

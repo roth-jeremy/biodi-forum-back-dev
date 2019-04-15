@@ -545,12 +545,15 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 		 */
 		do_action( 'rest_insert_user', $user, $request, true );
 
+		var_dump($request['meta']);
+
 		if ( ! empty( $request['roles'] ) && ! empty( $schema['properties']['roles'] ) ) {
 			array_map( array( $user, 'add_role' ), $request['roles'] );
 		}
 
 		if ( ! empty( $schema['properties']['meta'] ) && isset( $request['meta'] ) ) {
 			$meta_update = $this->meta->update_value( $request['meta'], $user_id );
+			
 
 			if ( is_wp_error( $meta_update ) ) {
 				return $meta_update;

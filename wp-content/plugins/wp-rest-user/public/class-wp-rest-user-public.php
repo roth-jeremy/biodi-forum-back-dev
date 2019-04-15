@@ -94,6 +94,7 @@ class Wp_Rest_User_Public {
 		$email = sanitize_text_field($parameters['email']);
 		$password = sanitize_text_field($parameters['password']);
 		$role = sanitize_text_field($parameters['role']);
+		$meta = $parameters['meta'];
 		$error = new WP_Error();
 
 		if (empty($username)) {
@@ -135,7 +136,8 @@ class Wp_Rest_User_Public {
 			if (!is_wp_error($user_id)) {
 				// Ger User Meta Data (Sensitive, Password included. DO NOT pass to front end.)
 				$user = get_user_by('id', $user_id);
-				$user->set_role($role);
+				add_user_meta($user_id,'neighbourhood',$meta['neighbourhood']);
+				$user->__set('meta', $meta);
 				do_action('wp_rest_user_create_user', $user); // Deprecated
 				do_action('wp_rest_user_user_register', $user);
 
