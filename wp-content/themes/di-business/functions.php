@@ -176,8 +176,7 @@ function newPlant()
     }
 
     global $wpdb;
-    //$wpdb->query("INSERT INTO plants(name,description) VALUES("        . $_POST['name'] . "," . $_POST['description'] . ")");
-    echo $wpdb->insert('plants', array(
+    $inserted = $wpdb->insert('plants', array(
         'name'               => $_POST['name'],
         'description'        => $_POST['description'],
         'initialBudget'      => $_POST['initialBudget'],
@@ -188,6 +187,13 @@ function newPlant()
         'sunlight'           => $_POST['sunlight'],
         'favorising'         => $_POST['favorising']
     ));
+    global $wp;
+    $current_url = home_url(add_query_arg(array(), $wp->request));
+    if ($inserted === false){
+        echo 'error during creation';
+    }else{
+        wp_redirect($current_url."/wp-admin/admin.php?page=myplugin%2Fplants-page.php");
+    }
 }
 
 add_action('admin_post_newPlant', 'newPlant');
@@ -254,7 +260,6 @@ function updatePlant()
 {
     global $wp;
     $current_url = home_url(add_query_arg(array(), $wp->request));
-    echo $current_url;
 
     global $wpdb;
     //$wpdb->query("INSERT INTO plants(name,description) VALUES("        . $_POST['name'] . "," . $_POST['description'] . ")");
@@ -273,7 +278,6 @@ function updatePlant()
     if ($updated === false) {
         echo 'error during updating';
     } else {
-        echo $_POST['idPlant'];
         wp_redirect($current_url."/wp-admin/admin.php?page=myplugin%2Fplants-page.php");
     }
 }
@@ -320,15 +324,3 @@ function admin_style()
 }
 
 add_action('admin_enqueue_scripts', 'admin_style');
-
-/**
- * Add some styling to the plants form
- */ /*
-function admin_interaction()
-{
-    wp_enqueue_script('admin-',
-        get_template_directory_uri() . '/interaction-admin.js');
-}
-
-add_action('admin_enqueue_scripts', 'admin_interaction');
-*/
