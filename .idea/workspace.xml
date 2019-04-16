@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eda43a23-be35-473d-84e8-9e46e18fb357" name="Default Changelist" comment="">
+    <list default="true" id="756d4785-9ab8-4f5c-a59e-8c590f1741f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/di-business/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/di-business/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/di-business/interaction-admin.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +27,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/di-business/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="316" column="3" lean-forward="true" selection-start-line="316" selection-start-column="3" selection-end-line="316" selection-end-column="3" />
+            <state relative-caret-position="570">
+              <caret line="305" column="1" selection-start-line="305" selection-start-column="1" selection-end-line="305" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -65,6 +73,7 @@
         <option value="$PROJECT_DIR$/wp-content/themes/di-business/custom-admin.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/di-business/interaction-admin.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/di-business/functions.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -74,11 +83,21 @@
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="biodi-wp-dev" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\wamp64\www\biodi-wp-dev" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,7 +159,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eda43a23-be35-473d-84e8-9e46e18fb357" name="Default Changelist" comment="" />
+      <changelist id="756d4785-9ab8-4f5c-a59e-8c590f1741f4" name="Default Changelist" comment="" />
       <created>1554813139310</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -153,17 +172,18 @@
       <workItem from="1554964049682" duration="18220000" />
       <workItem from="1555072544307" duration="2308000" />
       <workItem from="1555310156065" duration="2328000" />
+      <workItem from="1555395595815" duration="437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38800000" />
+    <option name="totallyTimeSpent" value="39886000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18656716" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -176,7 +196,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24377032" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24377032" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -220,10 +240,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/di-business/interaction-admin.js" />
+    <entry file="file://$PROJECT_DIR$/wp-includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12761">
+          <caret line="6641" selection-start-line="6641" selection-end-line="6641" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/di-business/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="316" column="3" lean-forward="true" selection-start-line="316" selection-start-column="3" selection-end-line="316" selection-end-column="3" />
+        <state relative-caret-position="570">
+          <caret line="305" column="1" selection-start-line="305" selection-start-column="1" selection-end-line="305" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
