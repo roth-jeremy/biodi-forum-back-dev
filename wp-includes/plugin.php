@@ -942,7 +942,7 @@ function _wp_filter_build_unique_id( $tag, $function, $priority ) {
  * 'testone' is the namespace, 'loggedinuser' is the path. 
  * 
  * This route is accessible through "mysite.co/wp-json/testone/loggedinuser"
- */
+
 function checkloggedinuser()
 {
 $currentuserid_fromjwt = get_current_user_id();
@@ -957,3 +957,4 @@ add_action('rest_api_init', function ()
   'callback' => 'checkloggedinuser'
   ));
 });
+*/
