@@ -137,6 +137,7 @@ class Wp_Rest_User_Public {
 				// Ger User Meta Data (Sensitive, Password included. DO NOT pass to front end.)
 				$user = get_user_by('id', $user_id);
 				add_user_meta($user_id,'neighbourhood',$meta['neighbourhood']);
+				add_user_meta($user_id,'newsletter',$meta['newsletter']);
 				$user->__set('meta', $meta);
 				do_action('wp_rest_user_create_user', $user); // Deprecated
 				do_action('wp_rest_user_user_register', $user);
